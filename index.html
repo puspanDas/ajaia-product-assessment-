@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SidelineReel | PM Assessment Dossier & Prototype — Ajaia</title>
+  <meta name="description" content="SidelineReel Product Management Assessment: Task 1 Roadmap Call, Task 2 Product Spec, and Task 3 Interactive Working Prototype by Puspan Das.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <div id="app" class="app-container">
+    
+    <!-- Top Global App Bar -->
+    <header class="app-header">
+      <div class="header-top-row">
+        
+        <!-- Left: Logo & Role Info -->
+        <div class="brand-group">
+          <div class="brand-logo">
+            <div class="logo-icon-pulse">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">SidelineReel</span>
+              <span class="brand-sub">Ajaia Product Assessment • Puspan Das</span>
+            </div>
+          </div>
+
+          <div class="club-selector-wrap">
+            <label for="clubSelect" class="sr-only">Select Club</label>
+            <select id="clubSelect" class="club-select">
+              <option value="ridgeline" selected>Ridgeline Youth Soccer Club (U12) • $180k Renewal</option>
+              <option value="brightwater">Brightwater Youth Lacrosse (U14 Boys)</option>
+              <option value="cobblestone">Cobblestone Little League (Major Division)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Middle: Live KPI Bar -->
+        <div class="header-kpis">
+          <div class="kpi-chip" id="kpiOpenRate">
+            <span class="chip-label">Reel Open Rate</span>
+            <span class="chip-val highlight-green">91.6%</span>
+            <span class="chip-sub">+30% unlocked</span>
+          </div>
+          <div class="kpi-chip" id="kpiTagAccuracy">
+            <span class="chip-label">Roster Precision</span>
+            <span class="chip-val highlight-blue">99.4%</span>
+            <span class="chip-sub">0 Disappointed Kids</span>
+          </div>
+          <div class="kpi-chip" id="kpiShareRate">
+            <span class="chip-label">Viral Share</span>
+            <span class="chip-val highlight-gold">92.4%</span>
+            <span class="chip-sub">90% recap viral</span>
+          </div>
+          <div class="kpi-chip" id="kpiCarlaAccount">
+            <span class="chip-label">Ridgeline $180k</span>
+            <span class="chip-val highlight-purple">Secured</span>
+            <span class="chip-sub">Live Hub Pitch</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Navigation Bar: Task 1, Task 2, Task 3 & Views -->
+      <div class="header-nav-row">
+        <nav class="nav-tabs" role="tablist" aria-label="Assessment Tasks & Prototype Views">
+          
+          <button class="nav-tab active" id="tabTask1" role="tab" aria-selected="true" data-view="view-task1">
+            <span class="tab-badge-task">TASK 1</span>
+            <span class="tab-text">The Roadmap Call</span>
+            <span class="tab-pill green-pill">Evidence Call</span>
+          </button>
+
+          <button class="nav-tab" id="tabTask2" role="tab" aria-selected="false" data-view="view-task2">
+            <span class="tab-badge-task">TASK 2</span>
+            <span class="tab-text">The Product Spec (PRD)</span>
+            <span class="tab-pill blue-pill">HITL Spec</span>
+          </button>
+
+          <button class="nav-tab" id="tabCoachStudio" role="tab" aria-selected="false" data-view="view-coach-studio">
+            <span class="tab-badge-task">TASK 3</span>
+            <span class="tab-text">Coach AI Studio</span>
+            <span class="tab-pill coral-pill" id="badgeFlaggedCount">2 Flagged</span>
+          </button>
+
+          <button class="nav-tab" id="tabParentReel" role="tab" aria-selected="false" data-view="view-parent">
+            <span class="tab-badge-task">TASK 3</span>
+            <span class="tab-text">Parent Mobile Reel</span>
+            <span class="tab-pill gold-pill">Emma #14</span>
+          </button>
+
+          <button class="nav-tab" id="tabCarlaHub" role="tab" aria-selected="false" data-view="view-carla">
+            <span class="tab-badge-task">TASK 3</span>
+            <span class="tab-text">Ridgeline Live Hub</span>
+            <span class="tab-pill purple-pill">$180k Defense</span>
+          </button>
+
+          <button class="nav-tab" id="tabMetrics" role="tab" aria-selected="false" data-view="view-metrics">
+            <span class="tab-badge-task">DATA</span>
+            <span class="tab-text">Metrics & Simulator</span>
+          </button>
+
+        </nav>
+      </div>
+    </header>
+
+    <!-- Context Banner: Match Status & Alert -->
+    <div class="match-context-banner" id="matchBanner">
+      <div class="match-info">
+        <div class="match-badge">Match Processed</div>
+        <div class="match-title">
+          <strong id="matchHeadline">Ridgeline U12 Wildcats vs Seattle Thunder FC (2 - 1)</strong>
+          <span class="match-meta">Saturday 9:00 AM • Turf Field 3 • Full 50m 4K Sideline Ingest</span>
+        </div>
+      </div>
+      <div class="batch-alert-box">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-text">
+          <span class="alert-title">Core Funnel Leak Prevented</span>
+          <span class="alert-desc">AI prevented 2 Jersey #14 vs #4 mixups & blocked 2:15 AM delivery. Queued for <strong>Sunday 9:30 AM</strong> family push.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN APPLICATION CONTAINER -->
+    <main class="main-content">
+
+      <!-- =====================================================================
+           VIEW 1: TASK 1 — THE ROADMAP CALL
+           ===================================================================== -->
+      <section id="viewTask1" class="view-panel active" role="tabpanel">
+        
+        <div class="task-intro-header">
+          <div class="intro-badge">Task 1: The Roadmap Call</div>
+          <h2>Evidence-Based Strategic Prioritization</h2>
+          <p class="intro-lead">
+            Evaluating Materials 1 through 5 to determine what SidelineReel builds next, why, what we explicitly do <strong>NOT</strong> build, and how we protect Ridgeline’s $180k renewal without derailing engineering.
+          </p>
+        </div>
+
+        <!-- 3 Core Strategy Pillar Cards -->
+        <div class="strategy-pillars-grid">
+          
+          <div class="card pillar-card highlight-green-border">
+            <div class="pillar-icon">🎯</div>
+            <div class="pillar-content">
+              <span class="pillar-tag tag-p1">Rank #1 (BUILD NEXT)</span>
+              <h3>Roster Tagging Disambiguation & 60-Sec Coach Micro-Audit</h3>
+              <p>
+                <strong>The Core Product Moat:</strong> Support tickets (Material 3) reveal children getting the wrong clips (#14 vs #4, #1 vs #11). Material 5 shows <strong>30% of reels are NEVER opened</strong> because thumbnails show the wrong kid or arrive at 2 AM. Fixing this restores user trust and unlocks <strong>+43% active reel viewership</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="card pillar-card highlight-coral-border">
+            <div class="pillar-icon">🚫</div>
+            <div class="pillar-content">
+              <span class="pillar-tag tag-reject">DO NOT BUILD</span>
+              <h3>Reel Editor Controls (Trimming & Custom Music)</h3>
+              <p>
+                <strong>The Stated vs. Revealed Preference Trap:</strong> While 58% of surveyed parents asked for editing controls (Material 2), usage data proves <strong>only 6% ever opened the editor, and &lt;1% finished an edit</strong>. Meanwhile, 90% share the 1-click recap. Building video editors wastes engineering on phantom demand.
+              </p>
+            </div>
+          </div>
+
+          <div class="card pillar-card highlight-purple-border">
+            <div class="pillar-icon">📡</div>
+            <div class="pillar-content">
+              <span class="pillar-tag tag-pivot">ENTERPRISE PIVOT</span>
+              <h3>Sideline Live Hub (Carla Reyes $180k Solution)</h3>
+              <p>
+                <strong>Pragmatic Commercial Defense:</strong> Native WebRTC/RTMP streaming across remote youth sports complexes with congested cell towers in 6 weeks is suicide. Instead, we deliver <em>Sideline Live Hub</em>: embedding existing camera links (Veo, YouTube Live) with synchronized live scores and instant AI highlight bookmarks.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Comprehensive Evidence & Trade-off Matrix -->
+        <div class="card matrix-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="badge-status">Evidence Synthesis</span>
+              <h3>Full Candidate Ranking & Trade-off Matrix</h3>
+            </div>
+            <span class="helper-text">Synthesizing Materials 1–5</span>
+          </div>
+
+          <div class="table-responsive">
+            <table class="pm-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Candidate Feature</th>
+                  <th>Source Material & Evidence</th>
+                  <th>Strategic & Operational Reality</th>
+                  <th>Decision & Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="highlight-row">
+                  <td><span class="rank-num rank-1">#1</span></td>
+                  <td>
+                    <strong>Roster Tagging Disambiguation Engine & 60-Sec Coach Review</strong>
+                  </td>
+                  <td>
+                    <strong>Material 3:</strong> Tickets from Ridgeline (#14 vs #4), Brightwater (swapped digits), Cobblestone (#1 vs #11).<br>
+                    <strong>Material 5:</strong> 30% of reels sit unopened.
+                  </td>
+                  <td>
+                    Youth sports reels are emotionally charged. If a 9-year-old opens her reel and sees someone else's goal, the product fails. Furthermore, 30% unopened rate is driven by wrong thumbnails.
+                  </td>
+                  <td>
+                    <span class="badge-priority p1">BUILD NEXT</span><br>
+                    <small>Unlocks 43% funnel leak & protects renewal retention.</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num">#2</span></td>
+                  <td>
+                    <strong>Push Delivery Window Optimizer (Sunday 9:30 AM)</strong>
+                  </td>
+                  <td>
+                    <strong>Material 5:</strong> Product health dashboard notes notifications arrive late at night (e.g. 2:15 AM).
+                  </td>
+                  <td>
+                    Late-night notifications are dismissed or buried under morning alarms. Moving delivery to family peak hours requires near-zero engineering.
+                  </td>
+                  <td>
+                    <span class="badge-priority p2">BUILD NEXT (Sprint Quick Win)</span><br>
+                    <small>Zero risk, high immediate lift.</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num">#3</span></td>
+                  <td>
+                    <strong>Sideline Live Hub (Partner Ingest & Real-Time AI Bookmarks)</strong>
+                  </td>
+                  <td>
+                    <strong>Materials 1 & 4:</strong> Carla Reyes ($180k Ridgeline account) needs livestreaming for board in 6 weeks.
+                  </td>
+                  <td>
+                    Carla's job-to-be-done is live access for grandparents & scouts. We build a live embed portal with existing cameras (Veo/RTMP) + instant AI highlight markers.
+                  </td>
+                  <td>
+                    <span class="badge-priority p-pivot">COMMERCIAL PIVOT</span><br>
+                    <small>Protects $180k without building CDN infra.</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num rank-reject">#4</span></td>
+                  <td>
+                    <strong>Reel Editor Controls (Trimming, Custom Music)</strong>
+                  </td>
+                  <td>
+                    <strong>Material 2:</strong> 58% of survey respondents asked for this, but &lt;1% ever completed an edit! 90% use 1-click share.
+                  </td>
+                  <td>
+                    Classic PM survey trap: <em>Stated vs. Revealed Preference</em>. Busy parents want magical automation, not complex mobile video editing.
+                  </td>
+                  <td>
+                    <span class="badge-priority p-reject">DO NOT BUILD</span><br>
+                    <small>High effort, zero business leverage.</small>
+                  </td>
+                </tr>
+                <tr>
+                  <td><span class="rank-num rank-reject">#5</span></td>
+                  <td>
+                    <strong>Native Proprietary Live Streaming Video Broadcast Infrastructure</strong>
+                  </td>
+                  <td>
+                    <strong>Materials 1 & 4:</strong> Demanded by Carla's board and Sales VP Jamal.
+                  </td>
+                  <td>
+                    Youth soccer parks have congested 4G/5G cell towers. Streams will freeze on Saturday morning, support will collapse, and cloud transcoding egress is prohibitively costly.
+                  </td>
+                  <td>
+                    <span class="badge-priority p-reject">DO NOT BUILD NOW</span><br>
+                    <small>Suicidal 6-week technical lift.</small>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Deep Dive: The Carla Reyes $180k Strategy -->
+        <div class="card memo-deep-dive">
+          <div class="card-header">
+            <div class="card-title-group">
+              <span class="badge-memo">Executive PM Strategy</span>
+              <h3>How We Defend Carla Reyes ($180k) Without Committing Engineering Suicide</h3>
+            </div>
+            <button class="btn-demo-shortcut" id="btnGoToCarlaHub">Explore Live Hub Interactive Demo →</button>
+          </div>
+          <div class="memo-grid-columns">
+            <div class="memo-col">
+              <h4>1. The Trap: What Jamal is Asking For</h4>
+              <p>
+                Jamal Whitfield (VP Sales) says Carla is threatening to shop around if live streaming isn't locked in before Ridgeline’s signups in 6 weeks ($180k account). A junior PM would panic and promise native video streaming, committing the team to building an RTMP broadcast network.
+              </p>
+              <div class="danger-callout">
+                ⚠️ <strong>The Field Reality:</strong> Weekend cellular congestion at municipal parks causes dropped frames. Saturday morning streams fail, grandparents get black screens, and Ridgeline leaves anyway.
+              </div>
+            </div>
+            <div class="memo-col">
+              <h4>2. The Solution: "Sideline Live Hub"</h4>
+              <p>
+                We deconstruct Carla's true Job-to-be-Done: <em>"so grandparents and college scouts can watch in real time."</em>
+              </p>
+              <ul class="solution-bullets">
+                <li><strong>6-Week Deliverable:</strong> Branded Ridgeline Game Day Live Hub embedded directly into SidelineReel.</li>
+                <li><strong>Zero Hardware Hassle:</strong> Clubs stream using existing sideline cameras (Veo, Hudl, YouTube Live, RTMP).</li>
+                <li><strong>Our Moat:</strong> SidelineReel overlays live match scores and tags <em>Instant AI Moment Bookmarks</em> in real time.</li>
+                <li><strong>The Outcome:</strong> Carla presents a polished live solution to her board, Jamal closes $180k, and AI engineering stays 100% focused on reel accuracy.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- =====================================================================
+           VIEW 2: TASK 2 — THE PRODUCT SPEC (PRD)
+           ===================================================================== -->
+      <section id="viewTask2" class="view-panel" role="tabpanel">
+        
+        <div class="task-intro-header">
+          <div class="intro-badge">Task 2: Product Specification (PRD)</div>
+          <h2>SidelineReel Accuracy Engine: Jersey Disambiguation & 60-Sec Coach Review</h2>
+          <p class="intro-lead">
+            Engineering, Design, and Operational Specification for the #1 Roadmap Item. Author: Puspan Das, Lead Product Manager.
+          </p>
+        </div>
+
+        <div class="prd-container">
+          
+          <!-- PRD Section 1: Outcomes & Scope -->
+          <div class="prd-grid-two">
+            
+            <div class="card prd-card">
+              <div class="prd-section-title">
+                <span class="prd-sec-num">01</span>
+                <h3>Target Outcomes & Key Metrics</h3>
+              </div>
+              <div class="kpi-targets-box">
+                <div class="target-item">
+                  <span class="target-val">30% ➔ &lt; 9%</span>
+                  <span class="target-label">Unopened Reel Rate</span>
+                  <span class="target-desc">Eliminates unopened reels caused by misleading thumbnails and 2 AM dispatch.</span>
+                </div>
+                <div class="target-item">
+                  <span class="target-val">82% ➔ 99.4%</span>
+                  <span class="target-label">Roster Tag Precision</span>
+                  <span class="target-desc">Stops wrong-kid clips (#14 vs #4, #1 vs #11) from landing in player reels.</span>
+                </div>
+                <div class="target-item">
+                  <span class="target-val">–95%</span>
+                  <span class="target-label">Support Ticket Volume</span>
+                  <span class="target-desc">Deflects emotional parent support tickets regarding misidentified children.</span>
+                </div>
+                <div class="target-item">
+                  <span class="target-val">+43%</span>
+                  <span class="target-label">Active Family Reach</span>
+                  <span class="target-desc">Pours verified viewers directly into SidelineReel’s 92% viral share loop.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card prd-card">
+              <div class="prd-section-title">
+                <span class="prd-sec-num">02</span>
+                <h3>Scope Boundaries</h3>
+              </div>
+              <div class="scope-columns">
+                <div class="scope-col in-scope">
+                  <h4>✓ Explicitly IN Scope</h4>
+                  <ul>
+                    <li>Two-pass digit OCR segmentation capable of identifying folded jersey cloth and single vs double digits.</li>
+                    <li>Confidence scoring pipeline: auto-approve $\ge 85\%$, flag ambiguous clips ($&lt; 85\%$).</li>
+                    <li>60-second mobile/tablet Coach Micro-Audit UI with high-res jersey zoom and 1-tap reassign/split.</li>
+                    <li>Smart Keyframe Selector enforcing front-facing jersey numbers and player faces for thumbnails.</li>
+                    <li>Parent 1-tap post-dispatch correction valve ("Wrong kid in this clip?").</li>
+                    <li>Push delivery scheduling engine (default: Sunday 9:30 AM local time).</li>
+                  </ul>
+                </div>
+                <div class="scope-col out-scope">
+                  <h4>✕ Explicitly OUT of Scope</h4>
+                  <ul>
+                    <li>In-app trimming, music mixing, or video editing tools for parents (rejected per Material 2 data).</li>
+                    <li>Proprietary WebRTC live broadcast streaming infrastructure.</li>
+                    <li>Biometric facial recognition without jersey number verification (privacy & COPPA compliance).</li>
+                    <li>Manual coach-only reel assembly (violates SidelineReel's zero-effort promise).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- PRD Section 2: Human In The Loop Architecture -->
+          <div class="card prd-card hitl-flow-card">
+            <div class="prd-section-title">
+              <span class="prd-sec-num">03</span>
+              <h3>Where a Human Stays in the Loop (HITL)</h3>
+            </div>
+            <p class="hitl-sub">
+              SidelineReel never asks a coach to build a reel by hand. Instead, we use humans strictly as <strong>low-friction verifiers</strong> where machine confidence is ambiguous.
+            </p>
+
+            <div class="hitl-visual-workflow">
+              
+              <div class="hitl-step-card">
+                <div class="hitl-step-header">
+                  <span class="step-badge">STEP 1: INGEST & OCR</span>
+                  <span class="step-actor">AI Vision</span>
+                </div>
+                <div class="hitl-step-body">
+                  <p>Full 4K match footage processed. Multi-digit OCR scores jersey numbers against active roster.</p>
+                  <div class="hitl-rule">
+                    <span>$\ge 85\%$ Confidence:</span> <strong>Auto-Approved</strong><br>
+                    <span>$&lt; 85\%$ or Ambiguous:</span> <strong>Queued for Coach</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hitl-arrow">➔</div>
+
+              <div class="hitl-step-card active-hitl">
+                <div class="hitl-step-header">
+                  <span class="step-badge primary-badge">STEP 2: PRE-DISPATCH</span>
+                  <span class="step-actor">Coach (48s avg)</span>
+                </div>
+                <div class="hitl-step-body">
+                  <p>Coach receives 1–3 flagged clips on their phone. Side-by-side zoom shows candidate players (#14 Emma vs #4 Sophie).</p>
+                  <div class="hitl-rule">
+                    <span>Action:</span> <strong>1-Tap Confirm or Split</strong><br>
+                    <span>Time Cost:</span> <strong>&lt; 60 seconds per game</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hitl-arrow">➔</div>
+
+              <div class="hitl-step-card">
+                <div class="hitl-step-header">
+                  <span class="step-badge">STEP 3: THUMBNAIL & PUSH</span>
+                  <span class="step-actor">Dispatch Engine</span>
+                </div>
+                <div class="hitl-step-body">
+                  <p>Smart Keyframe Selector picks verified front-facing frame. Scheduled for Sunday 9:30 AM.</p>
+                  <div class="hitl-rule">
+                    <span>Outcome:</span> <strong>Zero Wrong Thumbnails</strong><br>
+                    <span>Open Rate:</span> <strong>91.6% (Eliminates 30% drop)</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hitl-arrow">➔</div>
+
+              <div class="hitl-step-card">
+                <div class="hitl-step-header">
+                  <span class="step-badge">STEP 4: SAFETY VALVE</span>
+                  <span class="step-actor">Parent (Fallback)</span>
+                </div>
+                <div class="hitl-step-body">
+                  <p>If an occluded clip ever slips through, parents have a discrete "Wrong kid?" button inside the reel player.</p>
+                  <div class="hitl-rule">
+                    <span>Action:</span> <strong>1-Tap Reassign</strong><br>
+                    <span>Feedback:</span> <strong>Retrains OCR Weights</strong>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- PRD Section 3: Acceptance Criteria & Failure Modes -->
+          <div class="prd-grid-two">
+            
+            <div class="card prd-card">
+              <div class="prd-section-title">
+                <span class="prd-sec-num">04</span>
+                <h3>Testable Acceptance Criteria</h3>
+              </div>
+              
+              <div class="ac-list">
+                
+                <div class="ac-item">
+                  <div class="ac-head">
+                    <span class="ac-tag">AC-01</span>
+                    <strong>Single vs. Double Digit Fold Disambiguation</strong>
+                  </div>
+                  <p class="ac-body">
+                    <strong>Given</strong> a match where roster includes both Player A (#4) and Player B (#14),<br>
+                    <strong>When</strong> OCR detects jersey digit '4' with &gt; 35% fold occlusion on the left flank,<br>
+                    <strong>Then</strong> system must assign <code>CONFIDENCE &lt; 80%</code> and flag for coach review instead of misrouting to Player #4.
+                  </p>
+                </div>
+
+                <div class="ac-item">
+                  <div class="ac-head">
+                    <span class="ac-tag">AC-02</span>
+                    <strong>Coach 1-Tap Resolution Latency</strong>
+                  </div>
+                  <p class="ac-body">
+                    <strong>Given</strong> a flagged item with Emma Diaz (#14) and Sophie Clark (#4),<br>
+                    <strong>When</strong> the coach taps "Confirm as Emma Diaz (#14)",<br>
+                    <strong>Then</strong> Emma's personal reel must regenerate with the clip in &lt; 3.0 seconds, queue count must decrement by 1, and audit time telemetry must log.
+                  </p>
+                </div>
+
+                <div class="ac-item">
+                  <div class="ac-head">
+                    <span class="ac-tag">AC-03</span>
+                    <strong>Smart Keyframe Thumbnail Scoring</strong>
+                  </div>
+                  <p class="ac-body">
+                    <strong>Given</strong> an 8-second highlight clip,<br>
+                    <strong>When</strong> the thumbnail generator extracts keyframe candidates,<br>
+                    <strong>Then</strong> it must score frames and select one where <code>Jersey_Number_Visibility &gt; 0.90</code> and <code>Face_Detected == True</code>, explicitly rejecting back-of-jersey or turf slide frames.
+                  </p>
+                </div>
+
+                <div class="ac-item">
+                  <div class="ac-head">
+                    <span class="ac-tag">AC-04</span>
+                    <strong>Delivery Window Guardrail</strong>
+                  </div>
+                  <p class="ac-body">
+                    <strong>Given</strong> reel rendering completes at 2:15 AM Sunday,<br>
+                    <strong>When</strong> dispatch scheduler processes notifications,<br>
+                    <strong>Then</strong> SMS/Push alerts must be held until 9:30 AM in the club’s local time zone unless an explicit coach override is active.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card prd-card">
+              <div class="prd-section-title">
+                <span class="prd-sec-num">05</span>
+                <h3>Top Two Failure Modes & Detection</h3>
+              </div>
+              
+              <div class="failure-mode-box">
+                <div class="fail-head fail-danger">
+                  <strong>Failure Mode 1: Coach Fatigue / Queue Abandonment</strong>
+                </div>
+                <p class="fail-desc">
+                  <strong>The Risk:</strong> Busy volunteer coaches fail to open the audit queue before Sunday morning, resulting in stalled reels and angry parents.
+                </p>
+                <div class="fail-cure">
+                  <strong>What Catches It:</strong>
+                  <ul>
+                    <li><strong>Automated SLA Fallback:</strong> If unreviewed after 12 hours (or by Sunday 8:00 AM), clips between 70%–84% confidence are auto-assigned with a <em>"Pending Coach Confirmation"</em> badge, ensuring delivery is never blocked.</li>
+                    <li><strong>Clips &lt; 70% Confidence:</strong> Held in coach archive; team recap delivers on time.</li>
+                    <li><strong>Urgency Push:</strong> A 1-tap deep link sent Sunday 8:00 AM: <em>"Coach, 2 plays need your 30-second nod."</em></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="failure-mode-box">
+                <div class="fail-head fail-warning">
+                  <strong>Failure Mode 2: Swapped Digits & Inversion False Positives (#12 vs #21)</strong>
+                </div>
+                <p class="fail-desc">
+                  <strong>The Risk:</strong> In rapid motion (lacrosse, soccer), swapped digits or mirrored jerseys achieve false-high confidence (&gt; 85%) and bypass the coach queue.
+                </p>
+                <div class="fail-cure">
+                  <strong>What Catches It:</strong>
+                  <ul>
+                    <li><strong>Roster Substitution Anomaly Check:</strong> Cross-references playing time. If #21 was on the bench during minute 34, clip is flagged regardless of OCR confidence.</li>
+                    <li><strong>Real-Time Parent Feedback Circuit Breaker:</strong> If &gt; 1 parent on a single team taps "Wrong Kid" within 30 minutes of delivery, further dispatches are automatically paused and flagged for priority review.</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- =====================================================================
+           VIEW 3: TASK 3 — COACH AI STUDIO (LIVE PROTOTYPE)
+           ===================================================================== -->
+      <section id="viewCoachStudio" class="view-panel" role="tabpanel">
+        
+        <div class="task-intro-header">
+          <div class="intro-badge">Task 3: Live Working Prototype</div>
+          <h2>Coach AI Studio & 60-Second Micro-Audit</h2>
+          <p class="intro-lead">
+            Live interactive implementation of the Disambiguation Engine. Review the match pipeline, audit flagged plays, compare smart thumbnails, and dispatch verified reels.
+          </p>
+        </div>
+
+        <div class="studio-grid">
+          
+          <!-- Left Column: Match Footage & AI Tagging Pipeline -->
+          <div class="studio-left-col">
+            
+            <div class="card video-stage-card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <span class="badge-status live-dot">AI Analysis Complete</span>
+                  <h3>Sideline 4K Match Pipeline</h3>
+                </div>
+                <div class="feed-tools">
+                  <span class="tool-tag">14 Highlights Extracted</span>
+                  <span class="tool-tag tag-confidence">12 Auto-Approved (96%+)</span>
+                </div>
+              </div>
+
+              <!-- Interactive Video Simulation Box -->
+              <div class="video-player-container" id="videoContainer">
+                <div class="video-viewport">
+                  <img id="mainVideoImage" src="/soccer_highlight_action.jpg" alt="Match Footage Frame" class="active-video-frame">
+                  
+                  <!-- Overlays: AI Detection Bounding Boxes -->
+                  <div class="ai-bounding-box" id="aiBox14" style="top: 22%; left: 36%; width: 22%; height: 50%;">
+                    <div class="box-tag tag-player-14">
+                      <span class="tag-num">#14</span>
+                      <span class="tag-name">Emma Diaz</span>
+                      <span class="tag-conf warning-conf" id="box14Conf">64% Match</span>
+                    </div>
+                    <div class="box-corner tl"></div>
+                    <div class="box-corner tr"></div>
+                    <div class="box-corner bl"></div>
+                    <div class="box-corner br"></div>
+                  </div>
+
+                  <!-- Second player box in frame (Sophie #4) -->
+                  <div class="ai-bounding-box subtle-box" id="aiBox4" style="top: 36%; left: 63%; width: 14%; height: 35%;">
+                    <div class="box-tag tag-player-4">
+                      <span class="tag-num">#4</span>
+                      <span class="tag-name">Sophie Clark</span>
+                      <span class="tag-conf success-conf">92%</span>
+                    </div>
+                  </div>
+
+                  <!-- Playback Controls Overlay -->
+                  <div class="video-overlay-controls">
+                    <button class="btn-play-pause" id="btnTogglePlay" aria-label="Play/Pause Highlight">
+                      <span id="playIcon">▶</span>
+                    </button>
+                    <div class="scrubber-bar">
+                      <div class="scrubber-fill" id="scrubberFill" style="width: 42%;"></div>
+                      <div class="scrubber-marker" style="left: 15%;" title="Goal Emma #14 (14')">⚽</div>
+                      <div class="scrubber-marker" style="left: 42%;" title="Flagged: Slide Tackle (#14 vs #4)">⚠️</div>
+                      <div class="scrubber-marker" style="left: 78%;" title="Save Sophie #4 (44')">🧤</div>
+                    </div>
+                    <span class="timestamp-display" id="timeDisplay">14:32 / 50:00</span>
+                  </div>
+                </div>
+
+                <!-- Event Clip Carousel -->
+                <div class="clip-selector-strip">
+                  <div class="clip-strip-label">Match Highlights:</div>
+                  <div class="clips-scroll">
+                    <button class="clip-pill approved" data-clip="1">
+                      <span class="clip-icon">⚽</span>
+                      <span class="clip-title">12' Goal • Emma #14</span>
+                      <span class="clip-badge">98% Auto</span>
+                    </button>
+                    <button class="clip-pill flagged active" data-clip="2" id="pillClipFlagged">
+                      <span class="clip-icon">⚠️</span>
+                      <span class="clip-title">34' Big Play • #14 vs #4</span>
+                      <span class="clip-badge flagged-badge">Needs Coach (64%)</span>
+                    </button>
+                    <button class="clip-pill approved" data-clip="3">
+                      <span class="clip-icon">🧤</span>
+                      <span class="clip-title">41' Save • Sophie #4</span>
+                      <span class="clip-badge">94% Auto</span>
+                    </button>
+                    <button class="clip-pill approved" data-clip="4">
+                      <span class="clip-icon">🎯</span>
+                      <span class="clip-title">48' Assist • Maya #10</span>
+                      <span class="clip-badge">99% Auto</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Smart Thumbnail Disambiguation Card -->
+            <div class="card thumbnail-strategy-card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <span class="badge-accent">Core Funnel Fix</span>
+                  <h3>Smart Thumbnail Selector vs 30% Unopened Trap</h3>
+                </div>
+                <span class="helper-text">Why reels sit unopened on parents' phones</span>
+              </div>
+              <div class="thumbnail-comparison-grid">
+                
+                <div class="thumb-box bad-thumb">
+                  <div class="thumb-header">
+                    <span class="cross-icon">✕</span>
+                    <strong>Default AI Keyframe (OLD)</strong>
+                  </div>
+                  <div class="thumb-preview-wrap">
+                    <img src="/soccer_player_four.jpg" alt="Old Ambiguous Thumbnail" class="thumb-img blur-overlay">
+                    <div class="thumb-reason-tag">
+                      ⚠️ Shows #4 Sophie's back instead of Emma #14
+                    </div>
+                  </div>
+                  <div class="thumb-stat-danger">
+                    <span>Parent Reaction:</span> "That's not my kid."
+                    <div class="bounce-rate">30% Reels Never Opened</div>
+                  </div>
+                </div>
+
+                <div class="thumb-box good-thumb active">
+                  <div class="thumb-header">
+                    <span class="check-icon">✓</span>
+                    <strong>Smart Verified Keyframe (NEW SPEC)</strong>
+                  </div>
+                  <div class="thumb-preview-wrap">
+                    <img src="/soccer_highlight_action.jpg" alt="New Verified Thumbnail" class="thumb-img verified-border">
+                    <div class="thumb-reason-tag verified-tag">
+                      ✓ Front Jersey #14 + Clear Face + Dynamic Strike
+                    </div>
+                  </div>
+                  <div class="thumb-stat-success">
+                    <span>Parent Reaction:</span> "OMG Emma scored! Look!"
+                    <div class="open-rate-boost">92% Immediate Open & Share</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: 60-Second Coach Micro-Audit Queue -->
+          <div class="studio-right-col">
+            
+            <div class="card audit-card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <span class="badge-pulse">Human-In-The-Loop</span>
+                  <h3>60-Second Coach Quick-Audit</h3>
+                </div>
+                <div class="audit-timer-badge">
+                  ⏱️ Avg Coach Time: <strong>48 sec</strong>
+                </div>
+              </div>
+              <p class="audit-subtitle">
+                AI auto-tagged 85% of plays. Review <strong>2 ambiguous clips</strong> below so zero parents receive the wrong kid's reel.
+              </p>
+
+              <!-- Flagged Items List -->
+              <div class="audit-items-list" id="auditList">
+                
+                <!-- Flagged Item 1: Emma #14 vs Sophie #4 -->
+                <div class="audit-item active-audit" id="auditItem1">
+                  <div class="item-alert-bar">
+                    <span class="alert-type">⚠️ Digit Ambiguity Flagged</span>
+                    <span class="ticket-link">Ref: Material 3 Parent Ticket</span>
+                  </div>
+
+                  <div class="audit-item-body">
+                    <div class="audit-visual-crop">
+                      <div class="crop-frame">
+                        <img src="/soccer_highlight_action.jpg" alt="Cropped Jersey Crop" class="crop-img">
+                        <div class="crop-ocr-rect">
+                          <span class="ocr-char green-char">1 (58%)</span>
+                          <span class="ocr-char blue-char">4 (94%)</span>
+                        </div>
+                      </div>
+                      <div class="ocr-diagnosis">
+                        <strong>AI Diagnosis:</strong>
+                        <span>Jersey fold partially occluded the '1'. Candidate confusion between <strong>#14 Emma Diaz</strong> and <strong>#4 Sophie Clark</strong>.</span>
+                      </div>
+                    </div>
+
+                    <div class="candidates-selection">
+                      <div class="candidate-header">Who made this play?</div>
+                      <div class="candidate-options">
+                        <button class="btn-candidate selected" id="btnAssignEmma" data-player="14">
+                          <div class="cand-num">#14</div>
+                          <div class="cand-info">
+                            <strong>Emma Diaz</strong>
+                            <span>Forward • Ridgeline</span>
+                          </div>
+                          <span class="rec-pill">AI Suggested (64%)</span>
+                        </button>
+                        <button class="btn-candidate" id="btnAssignSophie" data-player="4">
+                          <div class="cand-num">#4</div>
+                          <div class="cand-info">
+                            <strong>Sophie Clark</strong>
+                            <span>Midfield • Ridgeline</span>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Coach Quick Actions -->
+                    <div class="item-actions">
+                      <button class="btn-primary-action" id="btnConfirmItem1">
+                        ✓ Confirm as Emma Diaz (#14)
+                      </button>
+                      <button class="btn-secondary-action" id="btnSplitItem1">
+                        ✂️ Split into Both Reels
+                      </button>
+                    </div>
+
+                    <!-- Status confirmation banner when solved -->
+                    <div class="resolved-banner hidden" id="resolvedBanner1">
+                      <span class="resolved-check">✓</span>
+                      <span>Verified: Tagged to Emma Diaz #14. High-res reel updated!</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Flagged Item 2: Lacrosse / Single Digit 1 vs 11 -->
+                <div class="audit-item" id="auditItem2">
+                  <div class="item-alert-bar">
+                    <span class="alert-type">⚠️ Single vs Double Digit</span>
+                    <span class="ticket-link">Ref: Cobblestone & Brightwater Tickets</span>
+                  </div>
+
+                  <div class="audit-item-body">
+                    <div class="audit-visual-crop">
+                      <div class="crop-frame">
+                        <img src="/youth_lacrosse_action.jpg" alt="Lacrosse Jersey 11" class="crop-img">
+                        <div class="crop-ocr-rect">
+                          <span class="ocr-char green-char">1 (91%)</span>
+                          <span class="ocr-char green-char">1 (88%)</span>
+                        </div>
+                      </div>
+                      <div class="ocr-diagnosis">
+                        <strong>AI Diagnosis:</strong>
+                        <span>Arm protector partially covered left digit. Matched <strong>#11 Liam Cole</strong> vs <strong>#1 Jack Vance</strong>.</span>
+                      </div>
+                    </div>
+
+                    <div class="candidate-options">
+                      <button class="btn-candidate selected" id="btnAssignLiam" data-player="11">
+                        <div class="cand-num">#11</div>
+                        <div class="cand-info">
+                          <strong>Liam Cole</strong>
+                          <span>Midfield</span>
+                        </div>
+                        <span class="rec-pill">Verified #11</span>
+                      </button>
+                      <button class="btn-candidate" id="btnAssignJack" data-player="1">
+                        <div class="cand-num">#1</div>
+                        <div class="cand-info">
+                          <strong>Jack Vance</strong>
+                          <span>Attack</span>
+                        </div>
+                      </button>
+                    </div>
+
+                    <div class="item-actions">
+                      <button class="btn-primary-action" id="btnConfirmItem2">
+                        ✓ Confirm Liam Cole (#11)
+                      </button>
+                    </div>
+
+                    <div class="resolved-banner hidden" id="resolvedBanner2">
+                      <span class="resolved-check">✓</span>
+                      <span>Verified: Tagged to Liam Cole #11.</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Dispatch & Delivery Box -->
+              <div class="dispatch-box">
+                <div class="dispatch-header">
+                  <div class="dispatch-icon">🚀</div>
+                  <div class="dispatch-text">
+                    <strong>Auto-Recap Batch Dispatch</strong>
+                    <span>18 Personal Reels & 1 Team Recap Ready</span>
+                  </div>
+                </div>
+
+                <div class="schedule-pill-box">
+                  <label for="deliveryTimeSelect" class="schedule-label">Smart Push Timing:</label>
+                  <select id="deliveryTimeSelect" class="schedule-select">
+                    <option value="smart" selected>Sunday 9:30 AM (Peak Family Engagement - Recommended)</option>
+                    <option value="immediate">Immediate Dispatch (Current Local Time)</option>
+                    <option value="legacy">Legacy 2:30 AM (Causes 30% unopened drop)</option>
+                  </select>
+                </div>
+
+                <button class="btn-send-all" id="btnPublishBatch">
+                  <span>Send 18 Verified Reels to Ridgeline Families</span>
+                  <span class="btn-arrow">→</span>
+                </button>
+                <div class="send-confirmation hidden" id="sendConfirmation">
+                  🎉 <strong>Dispatched!</strong> Notifications scheduled for Sunday 9:30 AM with smart verified thumbnails.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- =====================================================================
+           VIEW 4: TASK 3 — PARENT MOBILE REEL EXPERIENCE
+           ===================================================================== -->
+      <section id="viewParent" class="view-panel" role="tabpanel">
+        
+        <div class="task-intro-header">
+          <div class="intro-badge">Task 3: Parent Mobile Experience</div>
+          <h2>The 92% Viral Sharing Engine & Parent Safety Valve</h2>
+          <p class="intro-lead">
+            Experience the end-user delivery for Emma Diaz (#14). Test the verified badge, instant sharing to WhatsApp/Instagram, and the 1-tap correction fallback.
+          </p>
+        </div>
+
+        <div class="parent-grid">
+          
+          <!-- Mobile Phone Device Simulation -->
+          <div class="phone-mockup-wrapper">
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              
+              <!-- Phone Screen Content -->
+              <div class="phone-screen">
+                
+                <!-- Notification Simulation -->
+                <div class="push-notification-banner" id="parentPush">
+                  <div class="app-push-icon">⚽</div>
+                  <div class="push-content">
+                    <div class="push-head">
+                      <strong>SidelineReel</strong>
+                      <span class="push-time">Sunday 9:30 AM</span>
+                    </div>
+                    <div class="push-body">
+                      Emma's Weekend Reel is here! 3 big plays against Thunder FC 🎉
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Reel Header -->
+                <div class="mobile-reel-header">
+                  <div class="player-avatar-badge">
+                    <span class="jersey-circle">14</span>
+                    <div class="avatar-info">
+                      <h4>Emma Diaz</h4>
+                      <span class="sub-team">Ridgeline U12 Wildcats</span>
+                    </div>
+                  </div>
+                  <div class="match-score-pill">Win 2 - 1</div>
+                </div>
+
+                <!-- Vertical Highlight Reel Video Player -->
+                <div class="mobile-video-player">
+                  <img src="/soccer_highlight_action.jpg" alt="Emma Highlight Video" class="mobile-video-media" id="parentVideoImg">
+                  
+                  <!-- Player Overlay Card -->
+                  <div class="player-overlay-card">
+                    <div class="play-event-pill">
+                      <span class="event-icon">⚽</span>
+                      <span id="currentEventText">14' Top Corner Goal</span>
+                    </div>
+                    <div class="verified-tag-badge">
+                      <span class="shield-icon">🛡️</span>
+                      <span>Verified #14</span>
+                    </div>
+                  </div>
+
+                  <!-- Play controls in phone -->
+                  <div class="mobile-play-btn" id="btnMobilePlay">
+                    <span>▶</span>
+                  </div>
+
+                  <!-- Reel Clips Segments -->
+                  <div class="reel-story-bars">
+                    <div class="story-bar active" style="width: 32%;"></div>
+                    <div class="story-bar" style="width: 32%;"></div>
+                    <div class="story-bar" style="width: 32%;"></div>
+                  </div>
+                </div>
+
+                <!-- Reel Actions: The 92% Viral Engine -->
+                <div class="mobile-action-bar">
+                  <button class="btn-share-reel" id="btnShareParent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="share-svg"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                    <span>Share Emma's Reel (92% Share Rate)</span>
+                  </button>
+                  
+                  <!-- Human in the Loop Fallback for Parents -->
+                  <button class="btn-parent-feedback" id="btnParentReportWrong">
+                    <span>Wrong kid or clip? Tap here</span>
+                  </button>
+                </div>
+
+                <!-- Team Recap Card -->
+                <div class="mobile-team-card">
+                  <div class="team-card-head">
+                    <h5>Ridgeline Weekly Team Recap</h5>
+                    <span class="duration">1m 45s</span>
+                  </div>
+                  <div class="team-thumb-preview">
+                    <img src="/team_recap_celebration.jpg" alt="Team Celebration Recap">
+                    <div class="play-overlay-mini">▶</div>
+                  </div>
+                  <button class="btn-team-recap-share" id="btnTeamRecapShare">
+                    <span>Share Team Recap to Family Group</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Parent Explanation & Sharing Analytics -->
+          <div class="parent-info-col">
+            
+            <div class="card info-card">
+              <div class="card-header">
+                <div class="card-title-group">
+                  <span class="badge-status">Parent Experience Architecture</span>
+                  <h3>Why Accuracy Drives the Entire Growth Loop</h3>
+                </div>
+              </div>
+              <div class="strategy-callout">
+                <blockquote>
+                  "SidelineReel's highlight reels are a big part of why half our parents renewed this year, genuinely."
+                  <cite>— Carla Reyes, Executive Director, Ridgeline Youth Soccer Club</cite>
+                </blockquote>
+              </div>
+
+              <div class="growth-loop-flow">
+                <div class="loop-step">
+                  <div class="step-num">1</div>
+                  <div class="step-desc">
+                    <strong>Zero False Positives:</strong>
+                    <span>Emma gets her actual goal, not Sophie #4. Emotional validation creates delight instead of heartbreak.</span>
+                  </div>
+                </div>
+                <div class="loop-step">
+                  <div class="step-num">2</div>
+                  <div class="step-desc">
+                    <strong>Thumbnail Recognition:</strong>
+                    <span>Parents immediately recognize Emma in the push thumbnail. 30% unopened bounce drops to under 9%.</span>
+                  </div>
+                </div>
+                <div class="loop-step">
+                  <div class="step-num">3</div>
+                  <div class="step-desc">
+                    <strong>Organic Word-of-Mouth Sharing:</strong>
+                    <span>92% of opened reels are shared to grandparents, family WhatsApp groups, and Instagram Stories. This powers club signups!</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Parent Report Fallback Modal Simulation -->
+              <div class="parent-feedback-modal-demo" id="parentFeedbackBox">
+                <h4>Parent HITL Safety Valve (Fail-Safe Spec)</h4>
+                <p>If an occluded play ever slips past AI and Coach, parents have an instant 1-tap correction with zero friction:</p>
+                <div class="fake-modal-box">
+                  <div class="fake-modal-header">
+                    <span>Flag Clip in Emma's Reel</span>
+                    <span class="badge-mini">Feedback Loop</span>
+                  </div>
+                  <p class="fake-modal-text">"Is this not Emma? Help us update her reel:"</p>
+                  <div class="fake-options">
+                    <label><input type="radio" name="wrongReason" checked> This is teammate Sophie Clark (#4)</label>
+                    <label><input type="radio" name="wrongReason"> Clip is not Emma</label>
+                  </div>
+                  <button class="btn-fake-submit" id="btnSimulateParentFix">Instant 1-Click Reassign & Regenerate</button>
+                  <div class="parent-fix-toast hidden" id="parentFixToast">
+                    ✓ Clip instantly routed to Sophie's reel. Coach notified. AI weights updated!
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- =====================================================================
+           VIEW 5: TASK 3 — CARLA'S RIDGELINE LIVE HUB ($180K DEFENSE)
+           ===================================================================== -->
+      <section id="viewCarla" class="view-panel" role="tabpanel">
+        
+        <div class="task-intro-header">
+          <div class="intro-badge">Task 3: Carla's Enterprise Live Hub</div>
+          <h2>Sideline Live Hub: The $180k Renewal Defense</h2>
+          <p class="intro-lead">
+            How SidelineReel gives Carla Reyes and her board live game streaming for grandparents and scouts without risking engineering on native video infrastructure.
+          </p>
+        </div>
+
+        <div class="carla-grid">
+          
+          <div class="card carla-live-stage">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="badge-live-pulse">LIVE BROADCAST</span>
+                <h3>Sideline Live Hub: Ridgeline U12 vs Thunder FC</h3>
+              </div>
+              <div class="viewer-count">
+                <span>🔴 42 Live Viewers (Grandparents & Scouts)</span>
+              </div>
+            </div>
+
+            <!-- Embedded Live Stream Player Simulation -->
+            <div class="live-player-box">
+              <img src="/soccer_highlight_action.jpg" alt="Live Stream View" class="live-stream-feed">
+              <div class="live-watermark">
+                <span class="club-mark">RIDGELINE SOCCER</span>
+                <span class="live-tag">LIVE BROADCAST</span>
+              </div>
+              <div class="live-score-overlay">
+                <div class="team-score">RIDGELINE <span>2</span></div>
+                <div class="clock-half">2nd Half • 38:15</div>
+                <div class="team-score">THUNDER FC <span>1</span></div>
+              </div>
+
+              <!-- Live AI Instant Moments Ticker -->
+              <div class="live-moments-ticker">
+                <div class="ticker-title">⚡ Instant AI Moment:</div>
+                <div class="ticker-event">
+                  <span class="pill-goal">GOAL!</span>
+                  <span>Emma Diaz (#14) 22-yard strike into top corner! Instant clip generating...</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="live-hub-actions">
+              <div class="hub-url-share">
+                <span class="hub-label">Grandparent & Scout Access Link:</span>
+                <input type="text" readonly value="https://sidelinereel.com/live/ridgeline-u12-fall26" class="hub-url-input">
+                <button class="btn-copy-link" id="btnCopyLiveLink">Copy Link</button>
+              </div>
+              <div class="integration-partners">
+                <span>Native Stream Ingest via:</span>
+                <span class="partner-badge">Veo Camera Link</span>
+                <span class="partner-badge">YouTube Live RTMP</span>
+                <span class="partner-badge">Hudl / GameChanger</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- The PM Strategic Defense Column -->
+          <div class="card carla-strategy-card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="badge-memo">PM Executive Memo</span>
+                <h3>How We Win Carla Reyes ($180k) Without Building RTMP Infra</h3>
+              </div>
+            </div>
+
+            <div class="memo-content">
+              <div class="memo-row">
+                <strong>The Risk:</strong>
+                <p>Jamal (VP Sales): "Carla says if livestreaming isn't locked in before renewal in 6 weeks, she shops around. $180k account at risk."</p>
+              </div>
+              <div class="memo-row">
+                <strong>Why Building Native In-House Livestreaming is a Trap:</strong>
+                <ul>
+                  <li>Youth sports fields have congested 4G/5G cell towers; streams constantly freeze on Saturday mornings.</li>
+                  <li>Building low-latency RTMP/WebRTC transcoding in 6 weeks would derail the entire AI engineering team and cause disastrous operational outages.</li>
+                </ul>
+              </div>
+              <div class="memo-row highlight-box">
+                <strong>The Winning Solution ("Sideline Live Hub"):</strong>
+                <p>We deliver an <strong>integrated Live Hub</strong> that embeds existing camera links (Veo, RTMP, YouTube Live) and synchronizes SidelineReel's live score and instant AI highlight bookmarks.</p>
+                <p><strong>Outcome:</strong> Carla gets her board deliverable for grandparents and scouts <em>locked in today</em>, Jamal closes the $180k renewal, and our engineering team stays 100% focused on core AI highlight accuracy.</p>
+              </div>
+              <div class="memo-signoff">
+                <span>Status: <strong>Approved for Carla's Board Pitch</strong></span>
+                <button class="btn-view-spec-btn" id="btnViewTask2Shortcut">View Task 2 Spec →</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- =====================================================================
+           VIEW 6: PM STRATEGY & METRICS SIMULATOR
+           ===================================================================== -->
+      <section id="viewMetrics" class="view-panel" role="tabpanel">
+        
+        <div class="task-intro-header">
+          <div class="intro-badge">Business Impact Modeling</div>
+          <h2>Product Telemetry & Sensitivity Simulator</h2>
+          <p class="intro-lead">
+            Simulate how coach participation and delivery scheduling directly impact reel opens, tagging precision, and ticket deflection.
+          </p>
+        </div>
+
+        <div class="metrics-grid">
+          
+          <!-- Impact Metrics Simulator -->
+          <div class="card impact-simulator-card">
+            <div class="card-header">
+              <div class="card-title-group">
+                <span class="badge-accent">Financial & Growth Impact</span>
+                <h3>Projected Product Health Trajectory</h3>
+              </div>
+            </div>
+
+            <div class="impact-metrics-row">
+              <div class="impact-stat">
+                <span class="impact-num">+42%</span>
+                <span class="impact-title">Reel Open Volume</span>
+                <span class="impact-sub">Eliminates the 30% unopened bounce by verified thumbnails + 9:30 AM push</span>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-num">99.4%</span>
+                <span class="impact-title">Tagging Precision</span>
+                <span class="impact-sub">Multi-digit OCR disambiguation + 60s coach micro-review</span>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-num">$180,000</span>
+                <span class="impact-title">Ridgeline Renewal Saved</span>
+                <span class="impact-sub">Carla's board gets Live Hub without engineering taking on streaming infra</span>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-num">-94%</span>
+                <span class="impact-title">Mix-up Support Tickets</span>
+                <span class="impact-sub">Deflecting emotional parent tickets across all sports</span>
+              </div>
+            </div>
+
+            <div class="simulator-slider-box">
+              <div class="slider-header">
+                <label for="coachAuditSlider">Simulate Coach Micro-Audit Participation:</label>
+                <span id="sliderValueText" class="slider-val">85% Coach Adoption</span>
+              </div>
+              <input type="range" id="coachAuditSlider" min="10" max="100" value="85" class="range-slider">
+              <div class="slider-labels">
+                <span>10% (Passive Fallback)</span>
+                <span>50% (Standard)</span>
+                <span>85% (Predicted)</span>
+                <span>100% (Perfect)</span>
+              </div>
+              <div class="simulation-feedback" id="simulationFeedback">
+                At 85% coach participation (48 sec/game), 99.4% of all ambiguous jerseys are resolved before parent dispatch. Zero disappointed kids.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Global Toast Notification -->
+    <div id="toastNotification" class="toast-container hidden">
+      <div class="toast-icon" id="toastIcon">✓</div>
+      <div class="toast-body" id="toastMessage">Action completed successfully.</div>
+    </div>
+
+  </div>
+
+  <script type="module" src="/src/app.js"></script>
+</body>
+</html>
