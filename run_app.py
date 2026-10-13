@@ -70,9 +70,7 @@ def run_health_test():
         "public/soccer_highlight_action.jpg",
         "public/soccer_player_four.jpg",
         "public/team_recap_celebration.jpg",
-        "public/youth_lacrosse_action.jpg",
-        "SUBMISSION.md",
-        "PRESENTATION_SCRIPT.md"
+        "public/youth_lacrosse_action.jpg"
     ]
 
     all_ok = True

@@ -6,3 +6,10 @@ __pycache__/
 .env
 .DS_Store
 Thumbs.db
+
+# Internal scripts & drafts
+push_to_github.py
+PRESENTATION_SCRIPT.md
+presentation_script.md
+SUBMISSION.md
+submission.md

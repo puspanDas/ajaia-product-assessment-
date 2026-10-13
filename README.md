@@ -12,8 +12,6 @@ This repository contains the complete deliverables for the **Ajaia SidelineReel 
 1. **Task 1: The Roadmap Call** — Evidence-based candidate ranking, trade-off analysis, deep-dive into the 58% survey trap (Stated vs. Revealed Preference), and the strategic solution for Ridgeline’s $180k renewal.
 2. **Task 2: Product Specification (PRD)** — Complete engineering, design, and operational spec for the **Roster Tagging Disambiguation Engine & 60-Second Coach Micro-Review**.
 3. **Task 3: Interactive Working Prototype** — A full-fidelity web application built with HTML, Vanilla CSS, and modern JavaScript, demonstrating the coach micro-audit, smart thumbnail selector, parent mobile reel, and Ridgeline live hub.
-4. **Video Presentation Guide** — A minute-by-minute speaking script (`PRESENTATION_SCRIPT.md`) structured for a 5–10 minute screen+camera walkthrough.
-5. **Written Submission Document** — A 1,000-word executive product memo (`SUBMISSION.md`).
 
 ---
 
@@ -72,9 +70,6 @@ Open [http://localhost:5173/](http://localhost:5173/) in your browser.
 ├── index.html                 # Main application structure & assessment views
 ├── package.json               # Vite project configuration
 ├── run_app.py                 # Seamless Python runner & health monitor
-├── push_to_github.py          # Python automation script for Git operations
-├── SUBMISSION.md              # 1,000-word written assessment submission
-├── PRESENTATION_SCRIPT.md     # 5-10 minute video recording script
 ├── src/
 │   ├── app.js                 # Interactive logic, HITL engine, and metrics
 │   └── style.css              # Custom sports broadcast design system (Vanilla CSS)
